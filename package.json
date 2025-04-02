@@ -1,0 +1,37 @@
+{
+    "name": "crawler",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "env-cmd -f local.env node app.js",
+        "worker": "env-cmd -f local.env node worker.js",
+        "dev": "env-cmd -f local.env nodemon app.js",
+        "postinstall": "npx puppeteer browsers install chrome"
+    },
+    "author": "Abhishek",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.8.4",
+        "bull": "^4.16.5",
+        "cheerio": "^1.0.0",
+        "cors": "^2.8.5",
+        "crawler": "file:",
+        "dotenv": "^16.4.7",
+        "env-cmd": "^10.1.0",
+        "express": "^4.21.2",
+        "helmet": "^8.1.0",
+        "mysql2": "^3.14.0",
+        "puppeteer": "^24.4.0",
+        "sequelize": "^6.37.7",
+        "winston": "^3.17.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
