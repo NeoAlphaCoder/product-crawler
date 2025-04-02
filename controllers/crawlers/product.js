@@ -158,9 +158,12 @@ async function storeURLs(domain, urls) {
 }
 
 async function fetchWithPuppeteer(domain) {
+    const isLocal = process.env.NODE_ENV === 'development';
     const browser = await puppeteer.launch({
         headless: true,
-        executablePath: puppeteer.executablePath(), // Use Puppeteer's installed Chrome
+        executablePath: isLocal 
+            ? puppeteer.executablePath() 
+            : '/tmp/puppeteer_cache/chrome/linux-134.0.6998.35/chrome-linux64/chrome', // Use explicit path on Render
         args: ['--no-sandbox', '--disable-setuid-sandbox'] // Required for Render environments
     });
     const page = await browser.newPage();
